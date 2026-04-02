@@ -1,0 +1,24 @@
+{
+  "name": "OWASP ZAP CLI + Juice Shop",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "postCreateCommand": "sudo chmod +x scripts/*.sh && mkdir -p reports",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "OWASP Juice Shop"
+    }
+  }
+}
